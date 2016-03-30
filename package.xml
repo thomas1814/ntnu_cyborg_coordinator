@@ -2,7 +2,7 @@
 <package>
   <name>cyborg_coordinator</name>
   <version>0.0.0</version>
-  <description>NTNU Cyborg Coordinator</description>
+  <description>NTNU Cyborg ROS Package: Coordinator</description>
   <license>TODO</license>
   <url type="website">https://github.com/thentnucyborg/cyborg_coordinator</url>
   <maintainer email="cyborg@ntnu.edu">NTNU Cyborg</maintainer>
