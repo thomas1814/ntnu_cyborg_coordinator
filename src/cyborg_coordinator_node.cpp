@@ -29,7 +29,8 @@ class Coordinator
         {
             if (currentControllerId_.empty())
             {
-                ROS_DEBUG_NAMED("cyborg_coordinator", "requestControl: %s has taken control!", request.id.c_str());
+                ROS_DEBUG_NAMED("cyborg_coordinator",
+                    "requestControl: %s has taken control!", request.id.c_str());
 
                 const std::string topicBaseName =
                     std::string("/cyborg_coordinator/") + request.id;
@@ -42,12 +43,14 @@ class Coordinator
             }
             else if (request.id == currentControllerId_)
             {
-                ROS_DEBUG_NAMED("cyborg_coordinator", "requestControl: %s already has control!", request.id.c_str());
+                ROS_DEBUG_NAMED("cyborg_coordinator",
+                    "requestControl: %s already has control!", request.id.c_str());
                 response.controlReceived = true;
             }
             else
             {
-                ROS_DEBUG_NAMED("cyborg_coordinator", "requestControl: %s has been denied control!", request.id.c_str());
+                ROS_DEBUG_NAMED("cyborg_coordinator",
+                    "requestControl: %s has been denied control!", request.id.c_str());
                 response.controlReceived = false;
             }
 
@@ -59,14 +62,17 @@ class Coordinator
         {
             if (request.id == currentControllerId_)
             {
-                ROS_DEBUG_NAMED("cyborg_coordinator", "releaseControl: %s gave up control!", request.id.c_str());
+                ROS_DEBUG_NAMED("cyborg_coordinator",
+                    "releaseControl: %s gave up control!", request.id.c_str());
 
                 currentControllerId_.clear();
                 rosAriaCmdVelSubscriber_.shutdown();
             }
             else
             {
-                ROS_DEBUG_NAMED("cyborg_coordinator", "releaseControl: %s tried to give up control, but did not have it!", request.id.c_str());
+                ROS_DEBUG_NAMED("cyborg_coordinator",
+                    "releaseControl: %s tried to give up control, but did not have it!",
+                    request.id.c_str());
             }
 
             return true;
