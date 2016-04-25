@@ -20,7 +20,7 @@ generate_messages(
 )
 
 catkin_package(
-    CATKIN_DEPENDS roscpp geometry_msgs std_msgs message_generation
+    CATKIN_DEPENDS roscpp geometry_msgs std_msgs message_runtime
 )
 
 include_directories(

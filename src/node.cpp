@@ -40,7 +40,7 @@ namespace ntnu_cyborg_coordinator
             {
                 if (currentControllerId_.empty())
                 {
-                    ROS_DEBUG_NAMED("ntnu_cyborg_coordinator",
+                    ROS_INFO_NAMED("ntnu_cyborg_coordinator",
                         "requestControl: %s has taken control!", request.id.c_str());
 
                     const std::string topicBaseName =
@@ -54,13 +54,13 @@ namespace ntnu_cyborg_coordinator
                 }
                 else if (request.id == currentControllerId_)
                 {
-                    ROS_DEBUG_NAMED("ntnu_cyborg_coordinator",
+                    ROS_INFO_NAMED("ntnu_cyborg_coordinator",
                         "requestControl: %s already has control!", request.id.c_str());
                     response.controlReceived = true;
                 }
                 else
                 {
-                    ROS_DEBUG_NAMED("ntnu_cyborg_coordinator",
+                    ROS_INFO_NAMED("ntnu_cyborg_coordinator",
                         "requestControl: %s has been denied control!", request.id.c_str());
                     response.controlReceived = false;
                 }
@@ -73,7 +73,7 @@ namespace ntnu_cyborg_coordinator
             {
                 if (request.id == currentControllerId_)
                 {
-                    ROS_DEBUG_NAMED("ntnu_cyborg_coordinator",
+                    ROS_INFO_NAMED("ntnu_cyborg_coordinator",
                         "releaseControl: %s gave up control!", request.id.c_str());
 
                     currentControllerId_.clear();
@@ -81,7 +81,7 @@ namespace ntnu_cyborg_coordinator
                 }
                 else
                 {
-                    ROS_DEBUG_NAMED("ntnu_cyborg_coordinator",
+                    ROS_INFO_NAMED("ntnu_cyborg_coordinator",
                         "releaseControl: %s tried to give up control, but did not have it!",
                         request.id.c_str());
                 }
@@ -107,7 +107,7 @@ main(int argc, char** argv)
     ros::NodeHandle node;
     ntnu_cyborg_coordinator::Coordinator coordinator(node);
 
-    ROS_DEBUG_NAMED("ntnu_cyborg_coordinator", "ntnu_cyborg_coordinator ready to serve!");
+    ROS_INFO_NAMED("ntnu_cyborg_coordinator", "ntnu_cyborg_coordinator ready to serve!");
 
     ros::spin();
 }
