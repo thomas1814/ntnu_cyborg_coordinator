@@ -1,13 +1,13 @@
-# cyborg_coordinator
+# ntnu_cyborg_coordinator
 
-The cyborg_coordinator is a ROS catkin package for the NTNU Cyborg project. It coordinates RosAria control between multiple users.
+The ntnu_cyborg_coordinator is a ROS catkin package for the NTNU Cyborg project. It coordinates RosAria control between multiple users.
 
 ## Requesting control
 
 A user can request robot control by calling the `RequestControl` service with an `id` argument describing the user:
 
 ```
-rosservice call /cyborg_coordinator/requestControl my_user_identifier
+rosservice call /ntnu_cyborg_coordinator/requestControl my_user_identifier
 controlReceived: True
 ```
 
@@ -15,12 +15,12 @@ The service call will return a boolean value `controlReceived` indicating whethe
 
 ## Controlling the robot
 
-Normally, the user would send robot control messages to `/RosAria/cmd_vel`. When using the cyborg_coordinator, messages are instead sent to `/cyborg_coordinator/my_user_identifier/RosAria/cmd_vel`. If the user has been given control over the robot as the result of a `requestControl` call, the `cyborg_coordinator` will route messages from the user specific topic to `/RosAria/cmd_vel`.
+Normally, the user would send robot control messages to `/RosAria/cmd_vel`. When using the ntnu_cyborg_coordinator, messages are instead sent to `/ntnu_cyborg_coordinator/my_user_identifier/RosAria/cmd_vel`. If the user has been given control over the robot as the result of a `requestControl` call, the `ntnu_cyborg_coordinator` will route messages from the user specific topic to `/RosAria/cmd_vel`.
 
 ## Releasing control
 
 A user in control of the robot can release their control by calling the `ReleaseControl` service with the same `id` argument used when calling `RequestControl`:
 
 ```
-rosservice call /cyborg_coordinator/releaseControl my_user_identifier
+rosservice call /ntnu_cyborg_coordinator/releaseControl my_user_identifier
 ```

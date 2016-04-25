@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(cyborg_coordinator)
+project(ntnu_cyborg_coordinator)
 
 find_package(catkin REQUIRED COMPONENTS
     roscpp
@@ -27,6 +27,6 @@ include_directories(
   ${catkin_INCLUDE_DIRS}
 )
 
-add_executable(cyborg_coordinator_node src/cyborg_coordinator_node.cpp)
-add_dependencies(cyborg_coordinator_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
-target_link_libraries(cyborg_coordinator_node ${catkin_LIBRARIES})
+add_executable(ntnu_cyborg_coordinator_node src/node.cpp)
+add_dependencies(ntnu_cyborg_coordinator_node ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
+target_link_libraries(ntnu_cyborg_coordinator_node ${catkin_LIBRARIES})
