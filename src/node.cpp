@@ -19,7 +19,7 @@ namespace ntnu_cyborg_coordinator
                     "/ntnu_cyborg_coordinator/releaseControl", &Coordinator::releaseControl, this);
 
                 std::string rosAriaCmdVelTopic;
-                node.param("ros_aria_cmd_vel_topic", rosAriaCmdVelTopic, "RosAria/cmd_vel");
+                node.param<std::string>("ros_aria_cmd_vel_topic", rosAriaCmdVelTopic, "RosAria/cmd_vel");
 
                 int rosAriaCmdVelQueueSize;
                 node.param("ros_aria_cmd_vel_queue_size", rosAriaCmdVelQueueSize, 10);
@@ -105,7 +105,7 @@ main(int argc, char** argv)
     ros::init(argc, argv, "ntnu_cyborg_coordinator");
 
     ros::NodeHandle node;
-    ntnu::cyborg::coordinator::Coordinator coordinator(node);
+    ntnu_cyborg_coordinator::Coordinator coordinator(node);
 
     ROS_DEBUG_NAMED("ntnu_cyborg_coordinator", "ntnu_cyborg_coordinator ready to serve!");
 
