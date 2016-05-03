@@ -1,6 +1,10 @@
 # ntnu_cyborg_coordinator
 
-The `ntnu_cyborg_coordinator` is a ROS catkin package for the NTNU Cyborg project. It coordinates RosAria control between multiple users.
+The `ntnu_cyborg_coordinator` is a ROS catkin package for the NTNU Cyborg project. It coordinates `RosAria` control between multiple users.
+
+The following packages must be available to run `ntnu_cyborg_coordinator`:
+
+* https://github.com/thentnucyborg/rosaria
 
 ## Launching coordinator
 
