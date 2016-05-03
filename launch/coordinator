@@ -1,5 +1,6 @@
 <launch>
     <node name="ntnu_cyborg_coordinator_node" pkg="ntnu_cyborg_coordinator" type="ntnu_cyborg_coordinator_node" output="screen">
+    </node>
     <node name="rosaria" pkg="rosaria" type="RosAria">
         <param name="trans_accel" value="0.1" />
         <param name="publish_aria_lasers" value="true" />
